@@ -200,9 +200,10 @@ export class StageScene extends Phaser.Scene {
     this.player1.setCollideWorldBounds(true);
     this.player1.setImmovable(false);
     this.player1.setPushable(false);
+    this.player1.setBodySize(40, 40);
 
-    this.logoGameOver = this.add.image(360, 744, "game-game-over").setDepth(3);
-   
+    this.logoGameOver = this.add.image(228, 1000, "game-game-over").setDepth(3);
+
     this.logoEnemiesCount = this.add.group();
     for (let i = 0; i < 10; i++) {
       for (let j = 0; j < 2; j++) {
@@ -639,7 +640,7 @@ export class StageScene extends Phaser.Scene {
     if (this.sceneEnding) { return; }
     this.sceneEnding = true;
 
-    this.tweens.add({ duration: 2000, ease: "Back", repeat: 0, targets: this.logoGameOver, y: "342", yoyo: false });
+    this.tweens.add({ duration: 2000, ease: "Back", repeat: 0, targets: this.logoGameOver, y: "500", yoyo: false });
     this.time.delayedCall(3000, () => { this.scene.start("GameOverScene"); });
   }
 
